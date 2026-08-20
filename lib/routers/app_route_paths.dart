@@ -8,4 +8,7 @@ class AppRoutePaths {
 
   // Dashboard
   static const dashboard = '/dashboard';
+
+  // Profile
+  static const profile = '/profile';
 }

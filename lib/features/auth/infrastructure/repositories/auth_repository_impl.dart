@@ -31,7 +31,10 @@ class AuthRepositoryImpl implements AuthRepository {
 
     final user = result.dataOrNull!;
     final saveResult = await safeCall(
-      () => _localDataSource.setToken(user.accessToken, user.refreshToken),
+      () => _localDataSource.setToken(
+        user.accessToken ?? '',
+        user.refreshToken ?? '',
+      ),
     );
 
     if (saveResult.isFailure) {

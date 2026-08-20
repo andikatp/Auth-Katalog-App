@@ -22,7 +22,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<User> getUser() async {
-    final res = await _dio.post<Map<String, dynamic>>('/auth/me');
+    final res = await _dio.get<Map<String, dynamic>>('/auth/me');
     return User.fromJson(res.data!);
   }
 }
