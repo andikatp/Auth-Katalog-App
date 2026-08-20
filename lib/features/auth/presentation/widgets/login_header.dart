@@ -9,28 +9,16 @@ class LoginHeader extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Column(
+      spacing: 6,
       children: [
-        Container(
-          padding: const .all(16),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.primary.withValues(alpha: 0.1),
-            borderRadius: .circular(12),
-          ),
-          child: Icon(
-            Icons.lock_person_rounded,
-            size: 40,
-            color: theme.colorScheme.primary,
-          ),
-        ),
-        const SizedBox(height: 20),
         Text(
           'Welcome Back',
           textAlign: .center,
-          style: context.headlineSmall.copyWith(
+          style: context.headlineLarge.copyWith(
             fontWeight: .bold,
+            fontSize: 38,
           ),
         ),
-        const SizedBox(height: 6),
         Text(
           'Sign in to continue to your account',
           textAlign: .center,

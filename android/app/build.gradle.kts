@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.andikatp.auth_katalog_app"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -29,14 +29,14 @@ android {
         versionName = flutter.versionName
     }
 
-    flavorDimensions "flavors"
+    flavorDimensions += "flavors"
     productFlavors {
-        dev {
-            dimension "flavors"
-            applicationIdSuffix ".dev"
+        create("dev") {
+            dimension = "flavors"
+            applicationIdSuffix = ".dev"
         }
-        prod {
-            dimension "flavors"
+        create("prod") {
+            dimension = "flavors"
         }
     }
 
