@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
-  const new({super.key});
+  const SplashScreen({super.key});
 
   @override
   ConsumerState<SplashScreen> createState() => _SplashScreenState();
@@ -14,13 +14,13 @@ class SplashScreen extends ConsumerStatefulWidget {
 class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Timer(
-        const Duration(seconds: 1),
-        () async => ref.read(authControllerProvider.notifier).checkAuth(),
-      );
-    });
     super.initState();
+    scheduleMicrotask(() async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+      if (mounted) {
+        await ref.read(authControllerProvider.notifier).checkAuth();
+      }
+    });
   }
 
   @override

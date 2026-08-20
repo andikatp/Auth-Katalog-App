@@ -13,7 +13,7 @@ class AppRouteRedirect {
     GoRouterState state,
     Ref ref,
   ) {
-    final authState = ref.watch(authControllerProvider);
+    final authState = ref.read(authControllerProvider);
 
     final currentLocation = state.matchedLocation;
     final isSplash = currentLocation == AppRoutePaths.splash;
