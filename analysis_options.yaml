@@ -1,4 +1,13 @@
+include: package:very_good_analysis/analysis_options.yaml
+linter:
+  rules:
+    public_member_api_docs: false
 analyzer:
+  errors:
+    avoid_catches_without_on_clauses: ignore
+    avoid_positional_boolean_parameters: ignore
+    invalid_annotation_target: ignore
+    one_member_abstracts: ignore
   exclude:
     - build/**
     - android/**
@@ -7,7 +16,6 @@ analyzer:
     - windows/**
     - macos/**
     - linux/**
-include: package:very_good_analysis/analysis_options.yaml
-linter:
-  rules:
-    public_member_api_docs: false
+
+prefer_shorthands:
+  convert_implicit_declaration: true

@@ -11,6 +11,7 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
+.agents/
 
 # IntelliJ related
 *.iml
@@ -48,3 +49,4 @@ app.*.map.json
 .widget_preview/
 
 *.g.dart
+*.freezed.dart
