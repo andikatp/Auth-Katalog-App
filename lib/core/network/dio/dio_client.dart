@@ -1,4 +1,5 @@
 import 'package:auth_katalog_app/core/flavors/flavor_config.dart';
+import 'package:auth_katalog_app/core/network/errors/api_exception.dart';
 import 'package:auth_katalog_app/core/services/token_services.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -55,8 +56,26 @@ class ApiInterceptor extends InterceptorsWrapper {
     final token = _ref.read(tokenServiceProvider).token;
     final path = err.requestOptions.path;
     if (path == '/auth/me' && (token == null || token.isEmpty)) {
-      return super.onError(err, handler);
+      return handler.reject(
+        DioException(
+          requestOptions: err.requestOptions,
+          error: ServerException(_extractMessage(err)),
+        ),
+      );
     }
-    super.onError(err, handler);
+    return handler.reject(
+      DioException(
+        requestOptions: err.requestOptions,
+        error: ServerException(_extractMessage(err)),
+      ),
+    );
+  }
+
+  String _extractMessage(DioException err) {
+    final data = err.response?.data;
+    if (data is Map<String, dynamic>) {
+      return (data['message'] as String?) ?? 'Something went wrong';
+    }
+    return 'Something went wrong';
   }
 }
