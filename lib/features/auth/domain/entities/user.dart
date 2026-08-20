@@ -24,5 +24,28 @@ sealed class User with _$User {
     String? refreshToken,
   }) = _User;
 
+  const User._();
+
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
+  factory User.skeleton() => User(
+        id: 0,
+        username: 'username_placeholder',
+        email: 'user.email@example.com',
+        firstName: 'Firstname',
+        lastName: 'Lastname',
+        gender: 'Gender',
+        image: '',
+        phone: '+1 234 567 8900',
+        birthDate: '1990-01-01',
+        role: 'User',
+        company: UserCompany.skeleton(),
+        address: UserAddress.skeleton(),
+      );
+
+  String get fullName => '$firstName $lastName'.trim();
+  String get handle => '@$username';
+  String get initials =>
+      firstName.isNotEmpty ? firstName[0].toUpperCase() : '?';
+  String? get formattedRole => role?.toUpperCase();
 }

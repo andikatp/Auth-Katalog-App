@@ -2,6 +2,7 @@ import 'package:auth_katalog_app/features/auth/presentation/screens/login_screen
 import 'package:auth_katalog_app/features/core/presentations/screens/bottom_navigation.dart';
 import 'package:auth_katalog_app/features/core/presentations/screens/splash_screen.dart';
 import 'package:auth_katalog_app/features/dashboard/presentation/screens/dashboard_screen.dart';
+import 'package:auth_katalog_app/features/profile/presentation/screens/profile_detail_screen.dart';
 import 'package:auth_katalog_app/features/profile/presentation/screens/profile_screen.dart';
 import 'package:auth_katalog_app/routers/app_route_paths.dart';
 import 'package:flutter/widgets.dart';

@@ -22,7 +22,7 @@ class ThemeService {
     final results = await _storage.read(key: AppKeys.themeMode);
     _themeMode = ThemeMode.values.firstWhere(
       (e) => e.name == results,
-      orElse: () => .light,
+      orElse: () => .system,
     );
   }
 

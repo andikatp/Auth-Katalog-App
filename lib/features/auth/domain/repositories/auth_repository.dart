@@ -7,4 +7,5 @@ abstract class AuthRepository {
 
   ResultFuture<User> login(LoginParams params);
   ResultFuture<User> checkAuth();
+  ResultFuture<void> logout();
 }
