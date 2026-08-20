@@ -11,4 +11,5 @@ class AppRoutePaths {
 
   // Profile
   static const profile = '/profile';
+  static const profileDetail = '/profile/detail';
 }

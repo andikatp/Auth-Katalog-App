@@ -26,7 +26,12 @@ class AppRouteRedirect {
         if (isLogin) return null;
         return AppRoutePaths.login;
       },
-      success: (_) {
+      success: (user) {
+        if (user == null) {
+          if (isLogin) return null;
+          return AppRoutePaths.login;
+        }
+
         if (isSplash || isLogin) {
           return AppRoutePaths.dashboard;
         }

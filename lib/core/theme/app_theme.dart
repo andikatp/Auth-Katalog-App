@@ -23,9 +23,25 @@ class AppTheme extends _$AppTheme {
     scaffoldBackgroundColor: Colors.white,
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.kPrimaryColor),
     cupertinoOverrideTheme: const CupertinoThemeData(brightness: .light),
+    cardTheme: CardThemeData(
+      color: Colors.white,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: .circular(16),
+        side: const BorderSide(color: Color(0xFFCFCFCF)),
+      ),
+    ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: .circular(8)),
+      ),
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: Colors.white,
+      surfaceTintColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: .circular(16),
+        side: const BorderSide(color: Color(0xFFCFCFCF)),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -67,10 +83,26 @@ class AppTheme extends _$AppTheme {
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Color(0xFF1E293B),
     ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: const Color(0xFF1E293B),
+      surfaceTintColor: const Color(0xFF1E293B),
+      shape: RoundedRectangleBorder(
+        borderRadius: .circular(16),
+        side: const BorderSide(color: Color(0xFF334155)),
+      ),
+    ),
     cupertinoOverrideTheme: const CupertinoThemeData(
       brightness: .dark,
       barBackgroundColor: Color(0xFF1E293B),
       scaffoldBackgroundColor: Color(0xFF0F172A),
+    ),
+    cardTheme: CardThemeData(
+      color: const Color(0xFF1E293B),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: .circular(16),
+        side: const BorderSide(color: Color(0xFF334155)),
+      ),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(

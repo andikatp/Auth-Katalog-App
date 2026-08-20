@@ -56,4 +56,15 @@ class AuthRepositoryImpl implements AuthRepository {
       ResultFailure(:final failure) => (failure, null),
     };
   }
+
+  @override
+  ResultFuture<void> logout() async {
+    final result = await safeCall(
+      _localDataSource.removeToken,
+    );
+    return switch (result) {
+      Success() => (null, null),
+      ResultFailure(:final failure) => (failure, null),
+    };
+  }
 }

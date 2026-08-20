@@ -11,6 +11,14 @@ sealed class UserCompany with _$UserCompany {
     String? title,
   }) = _UserCompany;
 
+  const UserCompany._();
+
   factory UserCompany.fromJson(Map<String, dynamic> json) =>
       _$UserCompanyFromJson(json);
+
+  factory UserCompany.skeleton() => const UserCompany(
+    name: 'Company Name',
+    title: 'Software Developer',
+    department: 'Engineering',
+  );
 }
