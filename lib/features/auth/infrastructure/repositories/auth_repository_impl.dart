@@ -34,6 +34,7 @@ class AuthRepositoryImpl implements AuthRepository {
       () => _localDataSource.setToken(
         user.accessToken ?? '',
         user.refreshToken ?? '',
+        expiresInMins: params.expiresInMins,
       ),
     );
 
