@@ -23,7 +23,7 @@ Dio dio(Ref ref) {
       TalkerDioLogger(
         talker: talker,
         settings: TalkerDioLoggerSettings(
-          enabled: kDebugMode && FlavorConfig.instance.flavor == FlavorType.dev,
+          enabled: kDebugMode && FlavorConfig.instance.flavor == .dev,
           printRequestHeaders: true,
           printResponseHeaders: true,
         ),
