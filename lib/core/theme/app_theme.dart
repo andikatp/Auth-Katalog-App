@@ -25,9 +25,7 @@ class AppTheme extends _$AppTheme {
     cupertinoOverrideTheme: const CupertinoThemeData(brightness: .light),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: .circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: .circular(8)),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -48,10 +46,7 @@ class AppTheme extends _$AppTheme {
       ),
       fillColor: const Color(0xFFF8FAFC),
       filled: true,
-      contentPadding: const .symmetric(
-        horizontal: 14,
-        vertical: 12,
-      ),
+      contentPadding: const .symmetric(horizontal: 14, vertical: 12),
     ),
     appBarTheme: const AppBarTheme(
       surfaceTintColor: Colors.white,
@@ -79,9 +74,7 @@ class AppTheme extends _$AppTheme {
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: .circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: .circular(8)),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -102,10 +95,7 @@ class AppTheme extends _$AppTheme {
       ),
       fillColor: const Color(0xFF1E293B),
       filled: true,
-      contentPadding: const .symmetric(
-        horizontal: 14,
-        vertical: 12,
-      ),
+      contentPadding: const .symmetric(horizontal: 14, vertical: 12),
     ),
     appBarTheme: const AppBarTheme(
       surfaceTintColor: Color(0xFF0F172A),
