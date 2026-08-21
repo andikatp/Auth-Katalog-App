@@ -1,6 +1,7 @@
 import 'package:auth_katalog_app/core/extensions/build_context_extensions.dart';
 import 'package:auth_katalog_app/core/extensions/string_extensions.dart';
 import 'package:auth_katalog_app/features/auth/domain/entities/user.dart';
+import 'package:auth_katalog_app/features/core/presentations/widgets/app_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHeader extends StatelessWidget {
@@ -19,21 +20,22 @@ class ProfileHeader extends StatelessWidget {
                 shape: .circle,
                 border: .all(color: context.primaryColor, width: 3),
               ),
-              child: CircleAvatar(
-                radius: 50,
-                backgroundColor: context.primaryColor.withValues(alpha: 0.1),
-                backgroundImage: user.image.isNotEmpty
-                    ? NetworkImage(user.image)
-                    : null,
-                child: user.image.isEmpty
-                    ? Text(
-                        user.initials,
-                        style: context.headlineLarge.copyWith(
-                          color: context.primaryColor,
-                          fontWeight: .bold,
-                        ),
-                      )
-                    : null,
+              child: AppNetworkImage(
+                imageUrl: user.image,
+                width: 100,
+                height: 100,
+                shape: .circle,
+                errorWidget: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: context.primaryColor.withValues(alpha: 0.1),
+                  child: Text(
+                    user.initials,
+                    style: context.headlineLarge.copyWith(
+                      color: context.primaryColor,
+                      fontWeight: .bold,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
