@@ -59,17 +59,10 @@ class ApiInterceptor extends InterceptorsWrapper {
     ErrorInterceptorHandler handler,
   ) async {
     final token = _ref.read(tokenServiceProvider).token;
-    final path = err.requestOptions.path;
-    if (path == '/auth/me' && (token == null || token.isEmpty)) {
-      return handler.reject(
-        DioException(
-          requestOptions: err.requestOptions,
-          error: ServerException(_extractMessage(err)),
-        ),
-      );
-    }
 
-    if (err.response?.statusCode == 401) {
+    if (err.response?.statusCode == 401 &&
+        token != null &&
+        token.isNotEmpty) {
       try {
         final response = await _lock.synchronized(() async {
           final currentToken = _ref.read(tokenServiceProvider).token;
@@ -89,6 +82,7 @@ class ApiInterceptor extends InterceptorsWrapper {
 
         return handler.resolve(response);
       } catch (e) {
+        await _ref.read(tokenServiceProvider).clearTokens();
         return handler.reject(
           DioException(
             requestOptions: err.requestOptions,
