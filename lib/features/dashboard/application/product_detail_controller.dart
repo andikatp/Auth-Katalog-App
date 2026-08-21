@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'product_detail_controller.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class ProductDetailController extends _$ProductDetailController {
   @override
   Future<Product> build(int productId) async {
