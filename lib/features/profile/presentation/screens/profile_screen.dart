@@ -75,7 +75,7 @@ class ProfileContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+      padding: const .symmetric(horizontal: 8, vertical: 16),
       child: Column(
         spacing: 28,
         children: [
