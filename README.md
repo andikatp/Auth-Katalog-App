@@ -1,6 +1,9 @@
-# auth_katalog_app
+# Auth Katalog App
 
-A new Flutter project.
+[![Dart & Flutter CI](https://github.com/andikatp/Auth-Katalog-App/actions/workflows/dart.yml/badge.svg)](https://github.com/andikatp/Auth-Katalog-App/actions/workflows/dart.yml)
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
+
+A flutter project for technical test for Konten.com
 
 ## Getting Started
 
@@ -20,4 +23,3 @@ samples, guidance on mobile development, and a full API reference.
 - need to upgrade some dependencies since i still use some beta version
 - env should be ignore later, this is just for sake of testing
 - create a ui test with patrol
--
