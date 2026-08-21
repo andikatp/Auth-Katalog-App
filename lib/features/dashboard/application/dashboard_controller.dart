@@ -9,7 +9,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'dashboard_controller.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class DashboardController extends _$DashboardController {
   static const _pageSize = 10;
 
@@ -38,6 +38,8 @@ class DashboardController extends _$DashboardController {
     final (failure, products) = await ref
         .read(dashboardRepositoryProvider)
         .getProducts(params);
+
+    if (!ref.mounted) return;
 
     if (failure != null) {
       state = state.copyWith(

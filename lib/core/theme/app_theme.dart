@@ -31,8 +31,15 @@ class AppTheme extends _$AppTheme {
         side: const BorderSide(color: Color(0xFFCFCFCF)),
       ),
     ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
+        shape: RoundedRectangleBorder(borderRadius: .circular(8)),
+      ),
+    ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
         shape: RoundedRectangleBorder(borderRadius: .circular(8)),
       ),
     ),
@@ -104,8 +111,21 @@ class AppTheme extends _$AppTheme {
         side: const BorderSide(color: Color(0xFF334155)),
       ),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
+        shape: RoundedRectangleBorder(borderRadius: .circular(8)),
+      ),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
+        shape: RoundedRectangleBorder(borderRadius: .circular(8)),
+      ),
+    ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
+        minimumSize: const Size.fromHeight(56),
         shape: RoundedRectangleBorder(borderRadius: .circular(8)),
       ),
     ),

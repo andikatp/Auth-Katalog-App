@@ -6,6 +6,7 @@ abstract class DashboardRemoteDataSource {
   const DashboardRemoteDataSource();
 
   Future<List<Product>> getProducts(GetProductsParams params);
+  Future<Product> getProductDetail(int id);
 }
 
 class DashboardRemoteDataSourceImpl implements DashboardRemoteDataSource {
@@ -33,5 +34,11 @@ class DashboardRemoteDataSourceImpl implements DashboardRemoteDataSource {
     return productsRaw
         .map((e) => Product.fromJson(e as Map<String, dynamic>))
         .toList();
+  }
+
+  @override
+  Future<Product> getProductDetail(int id) async {
+    final res = await dio.get<Map<String, dynamic>>('/products/$id');
+    return Product.fromJson(res.data!);
   }
 }

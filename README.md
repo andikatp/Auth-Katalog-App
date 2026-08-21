@@ -15,3 +15,9 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+- need to upgrade kotlin and agp version and stuff, but got stuck at some dependencies
+- need to upgrade some dependencies since i still use some beta version
+- env should be ignore later, this is just for sake of testing
+- create a ui test with patrol
+-

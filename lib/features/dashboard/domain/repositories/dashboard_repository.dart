@@ -6,4 +6,5 @@ abstract class DashboardRepository {
   const DashboardRepository();
 
   ResultFuture<List<Product>> getProducts(GetProductsParams params);
+  ResultFuture<Product> getProductDetail(int id);
 }
