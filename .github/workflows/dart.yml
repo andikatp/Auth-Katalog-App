@@ -2,9 +2,9 @@ name: Dart & Flutter CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main", "master" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -18,13 +18,13 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: "temurin"
+          java-version: "17"
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: "stable"
           cache: true
 
       - name: Install Dependencies
