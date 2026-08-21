@@ -44,9 +44,15 @@ void main() {
         (_) async => (null, dummyProduct),
       );
 
-      final container = makeProviderContainer();
-      final state =
-          await container.read(productDetailControllerProvider(1).future);
+      final container = makeProviderContainer()
+        ..listen(
+          productDetailControllerProvider(1),
+          (previous, next) {},
+        );
+
+      final state = await container.read(
+        productDetailControllerProvider(1).future,
+      );
 
       expect(state.id, equals(1));
       expect(state.title, equals('Test Product'));
@@ -60,7 +66,7 @@ void main() {
 
       final container = makeProviderContainer();
 
-      await expectLater(
+      expect(
         container.read(productDetailControllerProvider(1).future),
         throwsA(isA<Exception>()),
       );

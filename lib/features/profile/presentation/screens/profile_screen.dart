@@ -57,17 +57,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         ),
         success: (user) {
           if (user == null) return const SizedBox.shrink();
-
-          return SingleChildScrollView(
-            padding: const .symmetric(horizontal: 8, vertical: 16),
-            child: Column(
-              spacing: 28,
-              children: [
-                ProfileHeader(user: user),
-                const ProfileMenuSection(),
-              ],
-            ),
-          );
+          return ProfileContent(user: user);
         },
       ),
     );
@@ -75,15 +65,25 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
   Widget _buildSkeletonLoader() {
     return Skeletonizer(
-      child: SingleChildScrollView(
-        padding: const .symmetric(horizontal: 8, vertical: 16),
-        child: Column(
-          spacing: 28,
-          children: [
-            ProfileHeader(user: User.skeleton()),
-            const ProfileMenuSection(),
-          ],
-        ),
+      child: ProfileContent(user: User.skeleton()),
+    );
+  }
+}
+
+class ProfileContent extends StatelessWidget {
+  const ProfileContent({required this.user, super.key});
+  final User user;
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+      child: Column(
+        spacing: 28,
+        children: [
+          ProfileHeader(user: user),
+          const ProfileMenuSection(),
+        ],
       ),
     );
   }
