@@ -1,5 +1,5 @@
 import 'package:auth_katalog_app/features/dashboard/domain/entities/product.dart';
-import 'package:auth_katalog_app/features/dashboard/presentation/widgets/product_card.dart';
+import 'package:auth_katalog_app/features/dashboard/presentation/widgets/product/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

@@ -38,6 +38,17 @@ sealed class Product with _$Product {
         price: 99.99,
         thumbnail: '',
         brand: 'Brand',
+        category: 'Category',
         rating: 4.5,
+        availabilityStatus: 'In Stock',
+        sku: 'SKU-0000',
+        stock: 99,
+        weight: 1.0,
+        warrantyInformation: '1 Year Warranty',
+        shippingInformation: 'Express Shipping',
+        returnPolicy: '30 Days Return Policy',
+        description:
+            'Skeleton loading placeholder description line 1. '
+            'Skeleton loading placeholder description line 2.',
       );
 }

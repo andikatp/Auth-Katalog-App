@@ -3,6 +3,7 @@ import 'package:auth_katalog_app/core/extensions/string_extensions.dart';
 import 'package:auth_katalog_app/core/providers/currency_converter.dart';
 import 'package:auth_katalog_app/features/core/presentations/widgets/app_network_image.dart';
 import 'package:auth_katalog_app/features/dashboard/domain/entities/product.dart';
+import 'package:auth_katalog_app/routers/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,8 +22,12 @@ class ProductCard extends ConsumerWidget {
       elevation: 2,
       clipBehavior: .antiAlias,
       shape: RoundedRectangleBorder(borderRadius: .circular(12)),
-      child: Column(
-        crossAxisAlignment: .start,
+      child: InkWell(
+        onTap: product.id == 0
+            ? null
+            : () => ProductDetailRoute(id: product.id).push<void>(context),
+        child: Column(
+          crossAxisAlignment: .start,
         children: [
           Expanded(
             child: Stack(
@@ -95,6 +100,7 @@ class ProductCard extends ConsumerWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

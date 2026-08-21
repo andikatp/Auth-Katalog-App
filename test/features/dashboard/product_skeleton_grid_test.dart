@@ -1,4 +1,4 @@
-import 'package:auth_katalog_app/features/dashboard/presentation/widgets/product_skeleton_grid.dart';
+import 'package:auth_katalog_app/features/dashboard/presentation/widgets/product/product_skeleton_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

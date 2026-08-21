@@ -9,6 +9,13 @@ extension NullableStringCleaner on String? {
   String get clean => cleanOrDefault();
 }
 
+extension NullableNumCleaner on num? {
+  String cleanUnit(String unit, [String defaultValue = '-']) {
+    if (this == null) return defaultValue;
+    return '$this $unit';
+  }
+}
+
 extension NullableDateStringFormatter on String? {
   String readableDateOrDefault([String defaultValue = '-']) {
     final value = cleanOrDefault(defaultValue);

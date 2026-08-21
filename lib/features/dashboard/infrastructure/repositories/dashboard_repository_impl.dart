@@ -27,4 +27,17 @@ class DashboardRepositoryImpl implements DashboardRepository {
       ResultFailure(:final failure) => (failure, null),
     };
   }
+
+  @override
+  ResultFuture<Product> getProductDetail(int id) async {
+    final result = await safeCall(
+      () => remoteDataSource.getProductDetail(id),
+      networkInfo: networkInfo,
+    );
+
+    return switch (result) {
+      Success(:final data) => (null, data),
+      ResultFailure(:final failure) => (failure, null),
+    };
+  }
 }
