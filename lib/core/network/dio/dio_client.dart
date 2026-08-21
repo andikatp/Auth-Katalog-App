@@ -10,7 +10,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 part 'dio_client.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Dio dio(Ref ref) {
   final talker = TalkerFlutter.init();
 
@@ -92,8 +92,9 @@ class ApiInterceptor extends InterceptorsWrapper {
         return handler.reject(
           DioException(
             requestOptions: err.requestOptions,
-            error:
-                e is ApiException ? e : ServerException(_extractMessage(err)),
+            error: e is ApiException
+                ? e
+                : ServerException(_extractMessage(err)),
           ),
         );
       }
