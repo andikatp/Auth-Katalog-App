@@ -15,19 +15,19 @@ class ProductDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final productAsync = ref.watch(productDetailControllerProvider(id));
 
-    return Scaffold(
-      body: productAsync.when(
-        data: (product) => ProductDetailContent(product: product),
-        loading: () => Skeletonizer(
+    return productAsync.when(
+      data: (product) => Scaffold(body: ProductDetailContent(product: product)),
+      loading: () => Scaffold(
+        body: Skeletonizer(
           child: ProductDetailContent(product: Product.skeleton()),
         ),
-        error: (error, _) => Scaffold(
-          appBar: AppBar(title: const Text('Detail Produk')),
-          body: AppErrorWidget(
-            title: 'Gagal memuat detail produk',
-            message: error.toString().replaceAll('Exception: ', ''),
-            onRetry: () => ref.refresh(productDetailControllerProvider(id)),
-          ),
+      ),
+      error: (error, _) => Scaffold(
+        appBar: AppBar(title: const Text('Detail Produk')),
+        body: AppErrorWidget(
+          title: 'Gagal memuat detail produk',
+          message: error.toString().replaceAll('Exception: ', ''),
+          onRetry: () => ref.refresh(productDetailControllerProvider(id)),
         ),
       ),
     );

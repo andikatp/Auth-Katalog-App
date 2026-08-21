@@ -5,7 +5,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'product_detail_controller.g.dart';
 
-@Riverpod(keepAlive: true)
+Duration? _noRetry(int retryCount, Object error) => null;
+
+@Riverpod(retry: _noRetry)
 class ProductDetailController extends _$ProductDetailController {
   @override
   Future<Product> build(int productId) async {

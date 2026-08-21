@@ -64,9 +64,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
   }
 
   Widget _buildSkeletonLoader() {
-    return Skeletonizer(
-      child: ProfileContent(user: User.skeleton()),
-    );
+    return Skeletonizer(child: ProfileContent(user: User.skeleton()));
   }
 }
 
