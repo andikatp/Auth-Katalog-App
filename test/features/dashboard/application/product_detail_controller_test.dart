@@ -64,12 +64,20 @@ void main() {
         (_) async => (const ServerFailure('Product not found'), null),
       );
 
-      final container = makeProviderContainer();
+      final container = makeProviderContainer()
+        ..listen(
+          productDetailControllerProvider(1),
+          (previous, next) {},
+        );
 
-      expect(
-        container.read(productDetailControllerProvider(1).future),
-        throwsA(isA<Exception>()),
-      );
+      Object? capturedError;
+      try {
+        await container.read(productDetailControllerProvider(1).future);
+      } catch (e) {
+        capturedError = e;
+      }
+
+      expect(capturedError, isA<Exception>());
       verify(() => mockRepository.getProductDetail(1)).called(1);
     });
   });
