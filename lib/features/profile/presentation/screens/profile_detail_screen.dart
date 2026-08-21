@@ -11,7 +11,9 @@ class ProfileDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.read(authControllerProvider).when(
+    final user = ref
+        .read(authControllerProvider)
+        .when(
           initial: () => null,
           loading: () => null,
           success: (user) => user,
@@ -27,18 +29,15 @@ class ProfileDetailScreen extends ConsumerWidget {
           : SingleChildScrollView(
               padding: const .symmetric(horizontal: 20, vertical: 16),
               child: Column(
+                spacing: 16,
                 children: [
                   ProfileInfoSection(user: user),
-                  const SizedBox(height: 16),
                   if (user.company != null) ...[
                     ProfileCompanySection(company: user.company!),
-                    const SizedBox(height: 16),
                   ],
                   if (user.address != null) ...[
                     ProfileAddressSection(address: user.address!),
-                    const SizedBox(height: 16),
                   ],
-                  const SizedBox(height: 24),
                 ],
               ),
             ),

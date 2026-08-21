@@ -39,18 +39,17 @@ void main() {
     tokenService = TokenService(mockStorage);
     mockDio = MockDio();
 
-    container = ProviderContainer(
-      overrides: [
-        tokenServiceProvider.overrideWithValue(tokenService),
-      ],
-    );
-
-    container.read(
-      Provider((r) {
-        ref = r;
-        return null;
-      }),
-    );
+    container =
+        ProviderContainer(
+          overrides: [
+            tokenServiceProvider.overrideWithValue(tokenService),
+          ],
+        )..read(
+          Provider((r) {
+            ref = r;
+            return null;
+          }),
+        );
 
     when(
       () => mockStorage.write(

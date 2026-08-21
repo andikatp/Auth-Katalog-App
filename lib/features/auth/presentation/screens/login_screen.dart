@@ -31,9 +31,9 @@ class LoginScreen extends ConsumerWidget {
             padding: .symmetric(horizontal: 24, vertical: 16),
             child: Column(
               mainAxisAlignment: .center,
+              spacing: 28,
               children: [
                 LoginHeader(),
-                SizedBox(height: 28),
                 LoginForm(),
               ],
             ),
