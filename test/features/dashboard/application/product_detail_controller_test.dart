@@ -68,16 +68,14 @@ void main() {
         ..listen(
           productDetailControllerProvider(1),
           (previous, next) {},
+          fireImmediately: true,
         );
 
-      Object? capturedError;
-      try {
-        await container.read(productDetailControllerProvider(1).future);
-      } catch (e) {
-        capturedError = e;
-      }
+      await pumpEventQueue();
 
-      expect(capturedError, isA<Exception>());
+      final state = container.read(productDetailControllerProvider(1));
+      expect(state.hasError, isTrue);
+      expect(state.error, isA<Exception>());
       verify(() => mockRepository.getProductDetail(1)).called(1);
     });
   });
